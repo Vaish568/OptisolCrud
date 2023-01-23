@@ -15,7 +15,9 @@ const UserTable = ({ user, handleDelete }) => {
         <td>{email}</td>
         <td>{phoneNumber}</td>
         <td>
-          <button className="ed">Edit</button>
+          <Link to={`${_id}`}>
+            <button className="ed">Edit</button>
+          </Link>
         </td>
         <td>
           <button
