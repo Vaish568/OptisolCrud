@@ -78,7 +78,7 @@ const Form = () => {
                 value={userData?.lastName}
                 onChange={(e) =>
                   setUserData((prev) => {
-                    return { ...prev, lasttName: e.target.value };
+                    return { ...prev, lastName: e.target.value };
                   })
                 }
               />
