@@ -6,8 +6,8 @@ import createUser from "./crud/createUser";
 import deleteUser from "./crud/deleteUser";
 
 const initialData = {
-  firstName: "",
-  lastName: "",
+  firstName: null,
+  lastName: null,
   email: "",
   phoneNumber: "",
 };
@@ -112,7 +112,7 @@ const Form = () => {
             </label>
             <div className="clearfix"></div>
             <input
-              type="text"
+              type="tel"
               className="form-register text"
               id=""
               placeholder="Phone"
@@ -284,11 +284,14 @@ const validateDetails = (values) => {
   console.log("Calleddddd", values);
   const error = {};
   let regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  let regexPhone =
-    /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
-  if (!values.fistName || !values.lastName) {
-    error.name = "fullname is required!";
-  }
+  // let regexPhone =
+  //   /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+  // if (!values.fistName) {
+  //   error.name = "fullname is required!";
+  // }
+  // if (!values.lastName) {
+  //   error.name = "fullname is required!";
+  // }
   if (!values.email) {
     console.log("email is empty");
     error.email = "Email is required!";
@@ -297,9 +300,10 @@ const validateDetails = (values) => {
   }
   if (!values.phoneNumber) {
     error.phoneNumber = "Contact number is required!";
-  } else if (!regexPhone.test(values.phone)) {
-    error.phoneNumber = "Enter a valid number";
   }
+  //else if (!regexPhone.test(values.phone)) {
+  //   error.phoneNumber = "Enter a valid number";
+  // }
 
   return error;
 };
